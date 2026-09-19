@@ -97,17 +97,11 @@ export default function Header() {
           
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-black text-base shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
-              E
-            </div>
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-xl font-extrabold text-white tracking-tight">
-                Ecom<span className="text-cyan-400">Ease</span>
-              </span>
-              <span className="text-[10px] text-white/70 uppercase tracking-widest font-semibold border-l border-white/20 pl-2">
-                Momentum
-              </span>
-            </div>
+            <img 
+              src="/com_white.png" 
+              alt="EcomEase Business Solution" 
+              className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-[1.02]" 
+            />
           </Link>
 
           {/* Navigation Links */}

@@ -29,13 +29,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800 text-xs">
           {/* Brand */}
           <div className="space-y-3 md:col-span-1">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded bg-blue-600 flex items-center justify-center text-white font-bold text-xs">
-                E
-              </div>
-              <span className="text-base font-bold text-white">EcomEase</span>
-            </div>
-            <p className="text-slate-400 leading-relaxed">
+            <Link to="/" className="inline-block">
+              <img 
+                src="/com_white.png" 
+                alt="EcomEase Business Solution" 
+                className="h-7 w-auto object-contain" 
+              />
+            </Link>
+            <p className="text-slate-400 leading-relaxed text-xs">
               India's specialized marketplace growth agency for Amazon, Flipkart, Meesho, Myntra, JioMart & FirstCry.
             </p>
           </div>
