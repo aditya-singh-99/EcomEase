@@ -20,13 +20,13 @@ export default function Myntra() {
         planName="Standard"
         planPrice="3000"
         services={[
-          "lorem epsum",
-          "lorem epsum",
-          "lorem epsum",
-          "lorem epsum",
-          "lorem epsum",
-          "lorem epsum",
-          "lorem epsum",
+          "Fashion & Apparel Catalog Uploads (up to 50)",
+          "Lookbook & Multi-Angle Image Optimization",
+          "Myntra Brand Gateway Approval & Vetting",
+          "End of Reason Sale (EORS) Promotions",
+          "Size Chart & Fabric Attribute Structuring",
+          "Return & Exchange Dispute Management",
+          "Monthly Category Trend & Velocity Report",
         ]}
       />
     </>

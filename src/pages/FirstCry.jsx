@@ -20,13 +20,13 @@ export default function FirstCry() {
         planName="Standard"
         planPrice="3000"
         services={[
-          "lorem epsum",
-          "lorem epsum",
-          "lorem epsum",
-          "lorem epsum",
-          "lorem epsum",
-          "lorem epsum",
-          "lorem epsum",
+          "Baby & Kids Catalog Uploads (up to 50)",
+          "Age Group & Size Variation Mapping",
+          "Brand Approval & Certification Support",
+          "FirstCry Sponsored Promotions",
+          "Inventory & Order Synchronization",
+          "Safe-T & Return Dispute Claims",
+          "Monthly Performance & Rating Audit",
         ]}
       />
     </>

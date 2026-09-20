@@ -26,9 +26,9 @@ export default function Footer() {
         </div>
 
         {/* Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800 text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-slate-800 text-xs">
           {/* Brand */}
-          <div className="space-y-3 md:col-span-1">
+          <div className="space-y-3 sm:col-span-2 md:col-span-1">
             <Link to="/" className="inline-block">
               <img 
                 src="/com_white.png" 
@@ -37,7 +37,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-slate-400 leading-relaxed text-xs">
-              India's specialized marketplace growth agency for Amazon, Flipkart, Meesho, Myntra, JioMart & FirstCry.
+              Across Amazon, Flipkart, Meesho, JioMart, FirstCry, and Myntra, we optimize listings, pricing, inventory, and promotions as part of our all-inclusive eCommerce management services.
             </p>
           </div>
 
@@ -54,17 +54,30 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Growth Services */}
+          {/* Fulfillment & Logistics */}
           <div className="space-y-2">
-            <div className="font-semibold text-white uppercase tracking-wider text-[11px]">Growth Services</div>
+            <div className="font-semibold text-white uppercase tracking-wider text-[11px]">Logistics & Supply</div>
             <ul className="space-y-1.5">
-              <li><Link to="/advertisement-services" className="hover:text-white transition-colors">Performance PPC & Meta Ads</Link></li>
               <li><Link to="/amazon-fba-enrollment" className="hover:text-white transition-colors">Amazon FBA Enrollment</Link></li>
               <li><Link to="/flipkart-fbf-enrollment" className="hover:text-white transition-colors">Flipkart FBF Fulfillment</Link></li>
               <li><Link to="/ixd-enrollment" className="hover:text-white transition-colors">IXD Inbound Cross-Dock</Link></li>
-              <li><Link to="/reconcilation-services" className="hover:text-white transition-colors">Payment Reconciliation</Link></li>
               <li><Link to="/shiprocket-integration" className="hover:text-white transition-colors">Shiprocket Logistics</Link></li>
               <li><Link to="/3pl-logistics-integration" className="hover:text-white transition-colors">3PL Warehousing</Link></li>
+              <li><Link to="/dropshipping-social-commerce" className="hover:text-white transition-colors">Dropshipping Services</Link></li>
+            </ul>
+          </div>
+
+          {/* Brand & Performance Services */}
+          <div className="space-y-2">
+            <div className="font-semibold text-white uppercase tracking-wider text-[11px]">Growth & Brand</div>
+            <ul className="space-y-1.5">
+              <li><Link to="/advertisement-services" className="hover:text-white transition-colors">Google & Meta Ads</Link></li>
+              <li><Link to="/advertisement-services" className="hover:text-white transition-colors">Digital Advertising (PPC)</Link></li>
+              <li><Link to="/amazon-global-expansion" className="hover:text-white transition-colors">Amazon Global Expansion</Link></li>
+              <li><Link to="/brand-store-ebc-services" className="hover:text-white transition-colors">Brand Store Creation</Link></li>
+              <li><Link to="/brand-store-ebc-services" className="hover:text-white transition-colors">EBC & A+ Content</Link></li>
+              <li><Link to="/account-reinstatement-services" className="hover:text-white transition-colors">Account Reinstatement</Link></li>
+              <li><Link to="/reconcilation-services" className="hover:text-white transition-colors">Payment Reconciliation</Link></li>
             </ul>
           </div>
 
@@ -78,13 +91,18 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="tel:+919984788952" className="hover:text-white flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5 text-emerald-400" /> +91 99847 88952
+                </a>
+              </li>
+              <li>
                 <a href="mailto:help@ecomeasebusiness.in" className="hover:text-white flex items-center gap-1.5">
                   <Mail className="w-3.5 h-3.5 text-blue-400" /> help@ecomeasebusiness.in
                 </a>
               </li>
               <li className="flex items-start gap-1.5 text-slate-400 pt-1">
                 <MapPin className="w-3.5 h-3.5 text-slate-500 flex-shrink-0 mt-0.5" />
-                <span>Varanasi, UP & Pan-India Client Operations</span>
+                <span>C27/222, Jagatganj, Chetganj, Varanasi, UP 221002</span>
               </li>
             </ul>
           </div>

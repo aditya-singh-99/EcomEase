@@ -18,6 +18,10 @@ import IXDEnrollment from './pages/IXDEnrollment.jsx'
 import ReconciliationServices from './pages/ReconcilationServices.jsx'
 import ShiprocketIntegration from './pages/ShiprocketIntegration.jsx'
 import LogisticsIntegration from './pages/LogisticsIntegration.jsx'
+import AmazonGlobalExpansion from './pages/AmazonGlobalExpansion.jsx'
+import BrandStoreEBC from './pages/BrandStoreEBC.jsx'
+import AccountReinstatement from './pages/AccountReinstatement.jsx'
+import DropshippingSocial from './pages/DropshippingSocial.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +43,11 @@ const router = createBrowserRouter(
       <Route path='reconcilation-services' element={<ReconciliationServices/>} />
       <Route path='shiprocket-integration' element={<ShiprocketIntegration/>} />
       <Route path='3pl-logistics-integration' element={<LogisticsIntegration/>} />
+      
+      <Route path='amazon-global-expansion' element={<AmazonGlobalExpansion />} />
+      <Route path='brand-store-ebc-services' element={<BrandStoreEBC />} />
+      <Route path='account-reinstatement-services' element={<AccountReinstatement />} />
+      <Route path='dropshipping-social-commerce' element={<DropshippingSocial />} />
 
       <Route path='contact-us' element={<ContactUs />} />
 

@@ -10,14 +10,24 @@ import {
   ChevronRight,
   Layers,
   BarChart2,
-  DollarSign
+  DollarSign,
+  Phone,
+  Mail,
+  Award,
+  Users,
+  Globe,
+  Palette,
+  FileText,
+  ShoppingBag,
+  Truck,
+  PackageCheck,
+  Target,
+  ShieldAlert
 } from 'lucide-react';
 import BigCommerceHeroShowcase from '../components/BigCommerceHeroShowcase';
 import InfiniteCarousel from '../components/InfiniteCarousel';
-import GrowthCalculator from '../components/GrowthCalculator';
 import BlockTransition from '../components/BlockTransition';
 import AmbientCursorGlow from '../components/AmbientCursorGlow';
-import BuyBoxSimulator from '../components/BuyBoxSimulator';
 import TiltCard from '../components/TiltCard';
 
 export default function Home() {
@@ -195,38 +205,41 @@ export default function Home() {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs text-white font-medium mb-6 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-            <span>Commerce built for momentum</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>EcomEase Business Solution • All-Inclusive eCommerce Management</span>
           </div>
 
-          {/* Headline */}
+          {/* Headline from Original Website */}
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08] max-w-4xl mx-auto drop-shadow-md">
-            Power modern buying experiences across India's largest marketplaces.
+            Transform Your Online Business with Expert eCommerce Solutions
           </h1>
 
-          {/* Subtitle */}
-          <p className="mt-5 text-base sm:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto font-normal drop-shadow">
-            All-in-one growth architecture for Amazon, Flipkart, Meesho, Myntra, JioMart & FirstCry. From high-converting listings to automated payment reconciliation.
+          {/* Subtitle with client's exact comprehensive scope */}
+          <p className="mt-5 text-base sm:text-lg text-white/95 leading-relaxed max-w-3xl mx-auto font-normal drop-shadow">
+            Across platforms including <span className="text-cyan-300 font-semibold">Amazon, Flipkart, Meesho, JioMart, FirstCry, and Myntra</span>, we optimize product listings, pricing, inventory, and promotions as part of our all-inclusive eCommerce management services.
           </p>
 
-          {/* Centered BigCommerce Dual Action Buttons */}
-          <div className="mt-8 mb-14 flex items-center justify-center gap-3">
-            <a
-              href="#audit-form"
-              className="btn-pressable px-7 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-black hover:bg-slate-900 border border-white/20 shadow-xl"
+          {/* Action Buttons: Get Started & WhatsApp */}
+          <div className="mt-8 mb-14 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/contact-us"
+              className="btn-pressable px-7 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-slate-950 bg-white hover:bg-slate-100 shadow-xl transition-all"
             >
-              Try for free
-            </a>
+              Get Started Today
+            </Link>
 
             <a
-              href="#showcase"
-              className="btn-pressable px-7 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-slate-900 bg-white hover:bg-slate-100 shadow-xl"
+              href="https://wa.me/919984788952?text=Hello!%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+              target="_blank"
+              rel="noreferrer"
+              className="btn-pressable px-7 py-3.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-500 border border-emerald-400/30 shadow-xl transition-all flex items-center gap-2"
             >
-              See in action
+              <Phone className="w-4 h-4" />
+              <span>WhatsApp Us (+91 99847 88952)</span>
             </a>
           </div>
 
-          {/* Centerpiece: The Luxury Storefront Window Mockup from Screenshot */}
+          {/* Centerpiece: Authentic Multi-Marketplace Command Center */}
           <div id="showcase" className="relative z-20">
             <BigCommerceHeroShowcase />
           </div>
@@ -239,28 +252,326 @@ export default function Home() {
       <InfiniteCarousel />
 
       {/* =========================================================================
-          KEY STATS TICKER: Clean, Authoritative Enterprise Metrics
+          AUTHENTIC VALUE PILLARS TICKER
           ========================================================================= */}
       <section className="py-12 border-b border-white/5 bg-[#090D16]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-            <div className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">₹180Cr+</div>
-            <div className="text-xs text-slate-400 mt-1 font-medium">GMV Managed</div>
+            <div className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">6 Channels</div>
+            <div className="text-xs text-slate-400 mt-1 font-medium">Amazon, Flipkart, Meesho, JioMart, FirstCry, Myntra</div>
           </div>
 
           <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-            <div className="text-2xl sm:text-4xl font-extrabold text-emerald-400 tracking-tight">4.8x</div>
-            <div className="text-xs text-slate-400 mt-1 font-medium">Average Portfolio ROAS</div>
+            <div className="text-2xl sm:text-4xl font-extrabold text-emerald-400 tracking-tight">16+ Services</div>
+            <div className="text-xs text-slate-400 mt-1 font-medium">Listings, Pricing, FBA/FBF, Ads, EBC, Reconciliation</div>
           </div>
 
           <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-            <div className="text-2xl sm:text-4xl font-extrabold text-cyan-400 tracking-tight">99.4%</div>
-            <div className="text-xs text-slate-400 mt-1 font-medium">Buy Box Win Rate</div>
+            <div className="text-2xl sm:text-4xl font-extrabold text-cyan-400 tracking-tight">100% Policy</div>
+            <div className="text-xs text-slate-400 mt-1 font-medium">Account Health, Safe-T & SPF Dispute Claims</div>
           </div>
 
           <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
-            <div className="text-2xl sm:text-4xl font-extrabold text-blue-400 tracking-tight">₹3.8Cr+</div>
-            <div className="text-xs text-slate-400 mt-1 font-medium">Reconciled Cash Recovered</div>
+            <div className="text-2xl sm:text-4xl font-extrabold text-blue-400 tracking-tight">Direct Access</div>
+            <div className="text-xs text-slate-400 mt-1 font-medium">Supervised Directly by Co-Founders</div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          WHY ECOMEASE: Full Mission & 4 Core Value Pillars (From Previous Site)
+          ========================================================================= */}
+      <section id="why-ecomease" className="py-20 border-b border-white/5 bg-gradient-to-b from-[#090D16] to-[#0D1322]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-4xl mx-auto mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
+              <Award className="w-3.5 h-3.5" />
+              <span>Full-Stack eCommerce Powerhouse</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+              WHY <span className="text-blue-400">ECOMEASE</span>
+            </h2>
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl mx-auto pt-2">
+              Across platforms including <strong className="text-white">Amazon</strong>, <strong className="text-white">Flipkart</strong>, <strong className="text-white">Meesho</strong>, <strong className="text-white">JioMart</strong>, <strong className="text-white">FirstCry</strong>, and <strong className="text-white">Myntra</strong>, we optimize product listings, pricing, inventory, and promotions as part of our all-inclusive eCommerce management services. In addition, we offer services for <span className="text-cyan-300">Amazon Global Expansion</span>, <span className="text-cyan-300">Reconciliation Services</span>, <span className="text-cyan-300">IXD Enrollment</span>, <span className="text-cyan-300">Shiprocket and 3PL Logistics Integration</span>, <span className="text-cyan-300">Google and Meta Ads</span>, <span className="text-cyan-300">eCommerce Management on Social Media</span>, <span className="text-cyan-300">Dropshipping</span>, <span className="text-cyan-300">EBC Services</span>, <span className="text-cyan-300">Creation of Brand Stores</span>, <span className="text-cyan-300">Account Reinstatement</span>, <span className="text-cyan-300">Cataloging</span>, <span className="text-cyan-300">Imaging</span>, <span className="text-cyan-300">Affiliate Marketing</span>, and <span className="text-cyan-300">High-Value Seller (HVS) Support</span>.
+            </p>
+          </div>
+
+          {/* 4 Core Value Pillars */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <TiltCard className="rounded-2xl h-full">
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-white/10 hover:border-blue-500/40 transition-all flex flex-col justify-between h-full group">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                    <Target className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                    Personalized Solutions
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    We are aware that each company is different. Our team develops unique eCommerce strategies that complement your unique objectives and the state of the market.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-white/5 flex items-center gap-1.5 text-xs text-blue-400 font-medium">
+                  <span>Tailored Playbooks</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
+            </TiltCard>
+
+            <TiltCard className="rounded-2xl h-full">
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-white/10 hover:border-cyan-500/40 transition-all flex flex-col justify-between h-full group">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                    <BarChart2 className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                    Data-Based Perspectives
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    We use cutting-edge analytics to deliver insights that are useful and ensure that the choices you make for your business are supported by actual facts and trends.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-white/5 flex items-center gap-1.5 text-xs text-cyan-400 font-medium">
+                  <span>Algorithmic Insights</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
+            </TiltCard>
+
+            <TiltCard className="rounded-2xl h-full">
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-white/10 hover:border-emerald-500/40 transition-all flex flex-col justify-between h-full group">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                    <Users className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                    Customer-First Approach
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Our top priority is your success. To encourage loyalty and recurring business, we concentrate on improving the user experience and customer pleasure.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-white/5 flex items-center gap-1.5 text-xs text-emerald-400 font-medium">
+                  <span>Brand Loyalty</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
+            </TiltCard>
+
+            <TiltCard className="rounded-2xl h-full">
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-white/10 hover:border-blue-500/40 transition-all flex flex-col justify-between h-full group">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                    Committed Assistance
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Once implementation is complete, our partnership doesn't end. We provide continuing assistance and instruction to guarantee your eCommerce platform keeps operating at peak efficiency.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-white/5 flex items-center gap-1.5 text-xs text-blue-400 font-medium">
+                  <span>24/7 Dedicated Lead</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
+            </TiltCard>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          TOP SERVICES: Authentic Visuals & Exact Descriptions from Original Repo
+          ========================================================================= */}
+      <section id="services" className="py-20 border-b border-white/5 bg-[#070A12]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
+              Battle-Tested Deliverables
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+              Top Tier eCommerce Services
+            </h2>
+            <p className="text-sm text-slate-400">
+              Each specialized discipline is run by seasoned marketplace directors with proven GMV track records.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1: FBA / FBF Enrollment */}
+            <div className="p-6 rounded-3xl bg-slate-900/60 border border-white/10 hover:border-blue-500/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-center gap-4 mb-5 p-4 rounded-2xl bg-white/[0.03] border border-white/5 min-h-[90px]">
+                  <img src="/Services/FBA.png" alt="Amazon FBA" className="h-12 w-auto object-contain" />
+                  <div className="w-px h-8 bg-white/20"></div>
+                  <img src="/Services/FBF.png" alt="Flipkart FBF" className="h-12 w-auto object-contain" />
+                </div>
+                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors mb-2">
+                  FBA / FBF Enrollment
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  We streamline the enrollment procedure for merchants to join Fulfilled by Flipkart (FBF) and Fulfilled by Amazon (FBA) by offering an enrolling option. Our solution guarantees a seamless setup, allowing you to take use of the platforms' shipping, packing, storage, and logistical capabilities.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                <Link to="/amazon-fba-enrollment" className="text-blue-400 hover:text-white font-medium flex items-center gap-1">
+                  <span>Explore FBA Setup</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <Link to="/flipkart-fbf-enrollment" className="text-slate-400 hover:text-white font-medium">
+                  <span>FBF Setup</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 2: Complete Account Management */}
+            <div className="p-6 rounded-3xl bg-slate-900/60 border border-white/10 hover:border-cyan-500/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-center mb-5 p-4 rounded-2xl bg-white/[0.03] border border-white/5 min-h-[90px]">
+                  <img src="/Services/Account_Management.png" alt="Complete Account Management" className="h-14 w-auto object-contain" />
+                </div>
+                <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">
+                  Complete Account Management
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  For e-commerce platforms, we offer complete account management services. Our all-inclusive solutions take care of inventory management, order processing, account setup, listing optimization, and platform policy compliance. You may concentrate on expanding your company while we manage operational challenges.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <Link to="/amazon-management-services" className="text-cyan-400 hover:text-white font-medium text-xs flex items-center gap-1">
+                  <span>View Multi-Marketplace Plans</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 3: Brand Store Creation & EBC */}
+            <div className="p-6 rounded-3xl bg-slate-900/60 border border-white/10 hover:border-cyan-500/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-center mb-5 p-4 rounded-2xl bg-white/[0.03] border border-white/5 min-h-[90px]">
+                  <img src="/Services/Brand_Store.png" alt="Brand Store Creation" className="h-14 w-auto object-contain" />
+                </div>
+                <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">
+                  Brand Store & EBC Services
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Our expertise lies in creating brand stores on e-commerce platforms, offering customized solutions to create a distinctive and captivating online identity for your company. Unique shop designs, A+ content modules, infographics, and seamless brand identity integration.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <Link to="/brand-store-ebc-services" className="text-cyan-400 hover:text-white font-medium text-xs flex items-center gap-1">
+                  <span>Explore Brand Store Portfolio</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 4: Account Reinstatement */}
+            <div className="p-6 rounded-3xl bg-slate-900/60 border border-white/10 hover:border-rose-500/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-center mb-5 p-4 rounded-2xl bg-white/[0.03] border border-white/5 min-h-[90px]">
+                  <img src="/Services/Reinstatement.png" alt="Account Reinstatement" className="h-14 w-auto object-contain" />
+                </div>
+                <h3 className="text-xl font-bold text-white group-hover:text-rose-400 transition-colors mb-2">
+                  Account Reinstatement
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  We provide professional e-commerce account reinstatement services, guiding you through the challenges of restoring your account to good standing. Troubleshooting, writing thorough appeal letters (POA), and corresponding with platform executive escalation teams.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <Link to="/account-reinstatement-services" className="text-rose-400 hover:text-white font-medium text-xs flex items-center gap-1">
+                  <span>Emergency Reinstatement Help</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 5: Digital Advertising (PPC) */}
+            <div className="p-6 rounded-3xl bg-slate-900/60 border border-white/10 hover:border-yellow-500/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-center mb-5 p-4 rounded-2xl bg-white/[0.03] border border-white/5 min-h-[90px]">
+                  <img src="/Services/Digital_Advertisement.png" alt="Digital Advertising" className="h-14 w-auto object-contain" />
+                </div>
+                <h3 className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors mb-2">
+                  Digital Advertising & PPC
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Specialist advertising options intended to increase visibility and boost sales, maximizing reach while crafting audience-specific ad campaigns. Comprehensive services from keyword research and bid management to ACOS control and ROI maximization.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <Link to="/advertisement-services" className="text-yellow-400 hover:text-white font-medium text-xs flex items-center gap-1">
+                  <span>Explore PPC Strategies</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 6: Google Ads & Meta Ads */}
+            <div className="p-6 rounded-3xl bg-slate-900/60 border border-white/10 hover:border-emerald-500/50 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-center gap-4 mb-5 p-4 rounded-2xl bg-white/[0.03] border border-white/5 min-h-[90px]">
+                  <img src="/Services/Google_Ads.png" alt="Google Ads" className="h-12 w-auto object-contain" />
+                  <div className="w-px h-8 bg-white/20"></div>
+                  <img src="/Services/Meta_Ads.png" alt="Meta Ads" className="h-12 w-auto object-contain" />
+                </div>
+                <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors mb-2">
+                  Google Ads & Meta Ads
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Full-service advertising solutions utilizing Google Performance Max and Meta Advantage+ campaigns. Intelligent audience targeting, creative ad development, high-converting copy, and accurate ROAS scaling for your direct and marketplace brands.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <Link to="/advertisement-services" className="text-emerald-400 hover:text-white font-medium text-xs flex items-center gap-1">
+                  <span>Scale Off-Amazon Traffic</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Extended Brilliance Spectrum Tags */}
+          <div className="mt-14 p-8 rounded-3xl bg-gradient-to-r from-slate-900/90 via-slate-950/90 to-blue-950/60 border border-white/10 shadow-2xl">
+            <div className="text-center max-w-xl mx-auto mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                OUR <span className="text-cyan-400">BRILLIANCE</span> SPECTRUM
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                Our creative team's exceptional ideas and deep domain experience set us apart in every way.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-2.5 justify-center">
+              {[
+                { label: 'Google Ads Service', path: '/advertisement-services' },
+                { label: 'Meta Ads Service', path: '/advertisement-services' },
+                { label: 'Social Media Ecommerce Management', path: '/dropshipping-social-commerce' },
+                { label: 'Dropshipping Services', path: '/dropshipping-social-commerce' },
+                { label: 'EBC Services (A+)', path: '/brand-store-ebc-services' },
+                { label: 'Brand Store Services', path: '/brand-store-ebc-services' },
+                { label: 'Reinstatement Services', path: '/account-reinstatement-services' },
+                { label: 'Amazon Global Expansion', path: '/amazon-global-expansion' },
+                { label: 'Reconciliation Services', path: '/reconcilation-services' },
+                { label: 'IXD Enrollment', path: '/ixd-enrollment' },
+                { label: 'Shiprocket Integration', path: '/shiprocket-integration' },
+                { label: '3PL Logistics Integration', path: '/3pl-logistics-integration' },
+                { label: 'Cataloging Services', path: '/amazon-management-services' },
+                { label: 'Imaging Services', path: '/brand-store-ebc-services' },
+                { label: 'Affiliate Marketing', path: '/advertisement-services' },
+                { label: 'High-Value Seller (HVS) Support', path: '/contact-us' }
+              ].map((item, idx) => (
+                <Link
+                  key={idx}
+                  to={item.path}
+                  className="px-4 py-2 rounded-xl bg-white/[0.04] hover:bg-blue-600 border border-white/10 text-xs sm:text-sm text-white transition-all font-medium"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -354,32 +665,7 @@ export default function Home() {
         </div>
       </section>
 
-      <BlockTransition variant="horizon" />
-
-      {/* =========================================================================
-          INTERACTIVE BUY BOX & ALGORITHMIC WIN-RATE SIMULATOR (Direction 1)
-          ========================================================================= */}
-      <BuyBoxSimulator />
-
       <BlockTransition variant="beam" />
-
-      {/* =========================================================================
-          SECTION 3: INTERACTIVE GROWTH & FEE RECOVERY CALCULATOR
-          ========================================================================= */}
-      <section id="calculator" className="py-20 border-b border-white/5 bg-[#0B0F1A]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-10 text-center max-w-xl">
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Calculate Your Trapped Revenue in Seconds
-          </h2>
-          <p className="mt-3 text-sm text-slate-400">
-            Slide your monthly GMV to project recovered reconciliation cash and ad efficiency gains.
-          </p>
-        </div>
-
-        <GrowthCalculator />
-      </section>
-
-      <BlockTransition variant="horizon" />
 
       {/* =========================================================================
           SECTION 4: CORE CAPABILITIES (Clean Interactive Tabs)
@@ -461,6 +747,69 @@ export default function Home() {
       </section>
 
       <BlockTransition variant="beam" />
+
+      {/* =========================================================================
+          LEADERSHIP & CO-FOUNDERS: Direct Access to Decision Makers (From Previous Site)
+          ========================================================================= */}
+      <section className="py-16 border-b border-white/5 bg-[#070A12]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">Direct Leadership Access</span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Partner Directly With Founders
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-400">
+              No junior account executives. Our co-founders directly supervise every marketplace brand onboarded.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <div className="p-6 rounded-3xl bg-slate-900/70 border border-white/10 flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-lg mb-4">
+                  RY
+                </div>
+                <h3 className="text-xl font-bold text-white">Mr. Ritesh Yadav</h3>
+                <div className="text-xs text-blue-400 font-semibold mb-3">Co-Founder & Operations Lead</div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Directly leads marketplace operations, FBA/FBF fulfillment logistics, IXD enrollment, and fee reconciliation audits across Amazon & Flipkart.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                <a href="tel:+919119885533" className="btn-pressable inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs">
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>+91 91198 85533</span>
+                </a>
+                <a href="https://wa.me/919119885533?text=Hello%20Ritesh,%20I%20would%20like%20to%20discuss%20marketplace%20services" target="_blank" rel="noreferrer" className="text-xs text-slate-400 hover:text-white">
+                  WhatsApp &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-slate-900/70 border border-white/10 flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg mb-4">
+                  AS
+                </div>
+                <h3 className="text-xl font-bold text-white">Mr. Ayush Singh</h3>
+                <div className="text-xs text-emerald-400 font-semibold mb-3">Co-Founder & Growth Lead</div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Specializes in algorithmic Sponsored PPC advertising, Google Performance Max, Meta Advantage+, Brand Stores, and Amazon Global Expansion.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                <a href="tel:+919984788952" className="btn-pressable inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs">
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>+91 99847 88952</span>
+                </a>
+                <a href="https://wa.me/919984788952?text=Hello%20Ayush,%20I%20would%20like%20to%20discuss%20performance%20marketing" target="_blank" rel="noreferrer" className="text-xs text-slate-400 hover:text-white">
+                  WhatsApp &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* =========================================================================
           SECTION 5: AUDIT BOOKING FORM
