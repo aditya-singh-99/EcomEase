@@ -13,15 +13,30 @@ import {
   Globe,
   ArrowUpRight
 } from 'lucide-react';
+import { useTilt3D } from '../hooks/useTilt3D';
 
 export default function BigCommerceHeroShowcase() {
   const [activeItem, setActiveItem] = useState('Channels');
   const [seoOptimized, setSeoOptimized] = useState(false);
+  const { ref, style, glare, handleMouseMove, handleMouseLeave } = useTilt3D(5, 1.012);
 
   return (
     <div className="relative w-full max-w-5xl mx-auto px-4 sm:px-6">
-      {/* Outer Glow & Shadow Container */}
-      <div className="relative rounded-2xl md:rounded-3xl p-2 sm:p-4 bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_30px_100px_rgba(0,0,0,0.35)] overflow-hidden">
+      {/* Outer Glow & Shadow Container with 3D Tilt */}
+      <div 
+        ref={ref}
+        style={style}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="relative rounded-2xl md:rounded-3xl p-2 sm:p-4 bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_30px_100px_rgba(0,0,0,0.35)] overflow-hidden transition-all"
+      >
+        {/* Specular glare overlay */}
+        <div 
+          className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-30"
+          style={{
+            background: `radial-gradient(circle 400px at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, ${glare.opacity}), transparent 70%)`
+          }}
+        />
         
         {/* The Mockup Storefront Window */}
         <div className="relative rounded-xl md:rounded-2xl overflow-hidden bg-slate-900 shadow-2xl border border-white/10">

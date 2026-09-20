@@ -16,6 +16,9 @@ import BigCommerceHeroShowcase from '../components/BigCommerceHeroShowcase';
 import InfiniteCarousel from '../components/InfiniteCarousel';
 import GrowthCalculator from '../components/GrowthCalculator';
 import BlockTransition from '../components/BlockTransition';
+import AmbientCursorGlow from '../components/AmbientCursorGlow';
+import BuyBoxSimulator from '../components/BuyBoxSimulator';
+import TiltCard from '../components/TiltCard';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState(0);
@@ -176,7 +179,8 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-full bg-[#090D16] text-slate-100">
+    <div className="w-full bg-[#090D16] text-slate-100 relative">
+      <AmbientCursorGlow />
       
       {/* =========================================================================
           HERO SECTION: BigCommerce Sky Blue & Violet Atmospheric Horizon
@@ -277,38 +281,39 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Tier 1 Flagship Spotlight (Amazon & Flipkart) */}
+          {/* Tier 1 Flagship Spotlight (Amazon & Flipkart) with 3D Tilt */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             {platforms.slice(0, 2).map((p) => (
-              <Link
-                key={p.name}
-                to={p.link}
-                className="subtle-card rounded-3xl p-8 flex flex-col justify-between group border border-white/10 hover:border-blue-500/40"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                      {p.badge}
-                    </span>
-                    <span className="text-sm font-bold text-emerald-400 font-tabular">
-                      {p.stat}
-                    </span>
+              <TiltCard key={p.name} className="rounded-3xl h-full">
+                <Link
+                  to={p.link}
+                  className="subtle-card rounded-3xl p-8 flex flex-col justify-between group border border-white/10 hover:border-blue-500/40 h-full"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                        {p.badge}
+                      </span>
+                      <span className="text-sm font-bold text-emerald-400 font-tabular">
+                        {p.stat}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                      {p.name}
+                    </h3>
+
+                    <p className="mt-3 text-sm text-slate-300 leading-relaxed">
+                      {p.description}
+                    </p>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
-                    {p.name}
-                  </h3>
-
-                  <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                    {p.description}
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-5 border-t border-white/10 flex items-center justify-between text-xs sm:text-sm font-medium text-slate-400 group-hover:text-white">
-                  <span>Explore channel roadmap & SLAs</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-blue-400" />
-                </div>
-              </Link>
+                  <div className="mt-8 pt-5 border-t border-white/10 flex items-center justify-between text-xs sm:text-sm font-medium text-slate-400 group-hover:text-white">
+                    <span>Explore channel roadmap & SLAs</span>
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-blue-400" />
+                  </div>
+                </Link>
+              </TiltCard>
             ))}
           </div>
 
@@ -348,6 +353,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <BlockTransition variant="horizon" />
+
+      {/* =========================================================================
+          INTERACTIVE BUY BOX & ALGORITHMIC WIN-RATE SIMULATOR (Direction 1)
+          ========================================================================= */}
+      <BuyBoxSimulator />
 
       <BlockTransition variant="beam" />
 
