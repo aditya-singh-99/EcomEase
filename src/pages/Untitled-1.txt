@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/Company_Logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sora:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <title>EcomEase | Commerce Built for Momentum — Marketplace Growth & Management</title>
+  <meta name="description" content="Scale your brand across Amazon, Flipkart, Meesho, JioMart, Myntra, and FirstCry with India's premier eCommerce growth partner. Complete account management, performance advertising, FBA/FBF logistics, and automated reconciliation." />
+  <script type="module" crossorigin src="/assets/index-DcV4hysH.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BMK4lzHc.css">
+</head>
+
+<body class="bg-[#0B0F19] text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+  <div id="root"></div>
+</body>
+
+</html>

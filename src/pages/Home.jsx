@@ -196,7 +196,7 @@ export default function Home() {
           HERO SECTION: BigCommerce Sky Blue & Violet Atmospheric Horizon
           (Directly inspired by the user's reference screenshot)
           ========================================================================= */}
-      <section className="relative pt-36 sm:pt-48 pb-20 overflow-hidden bg-gradient-to-b from-[#2563EB] via-[#3B82F6] via-60% to-[#7C3AED]/90 text-white">
+      <section className="relative pt-44 sm:pt-52 lg:pt-56 pb-20 overflow-hidden bg-gradient-to-b from-[#2563EB] via-[#3B82F6] via-60% to-[#7C3AED]/90 text-white">
         
         {/* Subtle cloud and mountain atmospheric layers */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.25),transparent_70%)] pointer-events-none"></div>
@@ -209,15 +209,23 @@ export default function Home() {
             <span>EcomEase Business Solution • All-Inclusive eCommerce Management</span>
           </div>
 
-          {/* Headline from Original Website */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08] max-w-4xl mx-auto drop-shadow-md">
-            Transform Your Online Business with Expert eCommerce Solutions
+          {/* Headline */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.12] max-w-5xl mx-auto drop-shadow-md">
+            Take Your Business Further with Smarter eCommerce Growth
           </h1>
 
-          {/* Subtitle with client's exact comprehensive scope */}
-          <p className="mt-5 text-base sm:text-lg text-white/95 leading-relaxed max-w-3xl mx-auto font-normal drop-shadow">
-            Across platforms including <span className="text-cyan-300 font-semibold">Amazon, Flipkart, Meesho, JioMart, FirstCry, and Myntra</span>, we optimize product listings, pricing, inventory, and promotions as part of our all-inclusive eCommerce management services.
-          </p>
+          {/* Subtitle with Client's Core Taglines */}
+          <div className="mt-6 max-w-3xl mx-auto space-y-2.5">
+            <p className="text-lg sm:text-2xl font-bold text-cyan-200 leading-snug drop-shadow">
+              From Listing to Leading the Marketplace.
+            </p>
+            <p className="text-base sm:text-xl font-medium text-white/95 leading-relaxed drop-shadow">
+              We Transform eCommerce Businesses into Growing Brands.
+            </p>
+            <p className="text-xs sm:text-sm text-white/80">
+              End-to-end marketplace management across Amazon, Flipkart, Meesho, JioMart, FirstCry & Myntra.
+            </p>
+          </div>
 
           {/* Action Buttons: Get Started & WhatsApp */}
           <div className="mt-8 mb-14 flex flex-wrap items-center justify-center gap-3">

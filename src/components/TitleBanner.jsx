@@ -4,7 +4,7 @@ import { ChevronRight, Home, Sparkles } from 'lucide-react';
 
 export default function TitleBanner({ title, subtitle }) {
   return (
-    <div className="relative pt-32 pb-16 bg-gradient-to-b from-[#070A12] via-[#0B0F19] to-[#0F1523] border-b border-slate-800/80 overflow-hidden text-white">
+    <div className="relative pt-36 pb-16 bg-gradient-to-b from-[#070A12] via-[#0B0F19] to-[#0F1523] border-b border-slate-800/80 overflow-hidden text-white">
       {/* Ambient background glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/10 rounded-full filter blur-3xl pointer-events-none"></div>
       <div className="absolute top-10 right-10 w-72 h-72 bg-cyan-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
