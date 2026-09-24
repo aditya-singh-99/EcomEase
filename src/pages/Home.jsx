@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import BigCommerceHeroShowcase from '../components/BigCommerceHeroShowcase';
 import InfiniteCarousel from '../components/InfiniteCarousel';
+import SellersFamily from '../components/SellersFamily';
 import BlockTransition from '../components/BlockTransition';
 import AmbientCursorGlow from '../components/AmbientCursorGlow';
 import TiltCard from '../components/TiltCard';
@@ -258,6 +259,11 @@ export default function Home() {
           INFINITE CAROUSEL: Continuous Marketplace & Partner Ecosystem Marquee
           ========================================================================= */}
       <InfiniteCarousel />
+
+      {/* =========================================================================
+          ECOM EASE SELLER'S FAMILY: Broad Showcase for Seller Brand Logos
+          ========================================================================= */}
+      <SellersFamily />
 
       {/* =========================================================================
           AUTHENTIC VALUE PILLARS TICKER
