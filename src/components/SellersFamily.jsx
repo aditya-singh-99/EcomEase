@@ -239,7 +239,7 @@ export default function SellersFamily() {
       name: 'Neelgagan',
       category: 'Daily Living & Personal Essentials',
       categoryGroup: 'Fashion & Lifestyle',
-      logo: '/sellers/neelgagan.png',
+      logo: '/sellers/neel.png',
       platforms: ['Amazon', 'Flipkart'],
       highlight: 'Daily Essentials',
     },
@@ -309,8 +309,8 @@ export default function SellersFamily() {
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${activeCategory === cat
-                  ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25 scale-105 font-bold'
-                  : 'bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10'
+                ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25 scale-105 font-bold'
+                : 'bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10'
                 }`}
             >
               {cat}
