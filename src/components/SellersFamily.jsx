@@ -236,10 +236,10 @@ export default function SellersFamily() {
       highlight: 'Crafted Goods',
     },
     {
-      name: 'Neel',
+      name: 'Neelgagan',
       category: 'Daily Living & Personal Essentials',
       categoryGroup: 'Fashion & Lifestyle',
-      logo: '/sellers/neel.png',
+      logo: '/sellers/neelgagan.png',
       platforms: ['Amazon', 'Flipkart'],
       highlight: 'Daily Essentials',
     },
@@ -265,7 +265,7 @@ export default function SellersFamily() {
       <div className="absolute bottom-10 right-10 w-[400px] h-[300px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
@@ -308,11 +308,10 @@ export default function SellersFamily() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
-                activeCategory === cat
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${activeCategory === cat
                   ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25 scale-105 font-bold'
                   : 'bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10'
-              }`}
+                }`}
             >
               {cat}
             </button>

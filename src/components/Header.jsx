@@ -77,6 +77,12 @@ export default function Header() {
       desc: 'Cross-border sales to 190+ countries',
       logo: '/partner-logos/ebay-partner-network.jpg'
     },
+    { 
+      name: 'Amazon Global Expansion', 
+      path: '/amazon-global-expansion', 
+      desc: 'Scale to US, UK, UAE & Europe',
+      logo: '/header-img/Amazon-logo.webp'
+    },
   ];
 
   const supportiveServices = [
@@ -227,32 +233,50 @@ export default function Header() {
               </button>
 
               {marketplacesOpen && (
-                <div className="absolute top-full -left-6 w-88 pt-2 menu-enter z-50">
-                  <div className="rounded-3xl p-3 bg-slate-950/95 backdrop-blur-3xl border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.85)] space-y-1">
-                    <div className="px-3 pt-2 pb-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                      Channels & Marketplaces
+                <div className="absolute top-full -left-6 sm:-left-12 w-[540px] sm:w-[580px] pt-2 menu-enter z-50">
+                  <div className="rounded-3xl p-4 bg-slate-950/95 backdrop-blur-3xl border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.85)]">
+                    <div className="flex items-center justify-between px-3 pt-1 pb-3 mb-2 border-b border-white/10">
+                      <div className="text-[11px] font-bold text-slate-300 uppercase tracking-wider">
+                        Channels & Marketplaces
+                      </div>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                        8 Marketplace Channels
+                      </span>
                     </div>
-                    {marketplaces.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-white/10 transition-colors group"
-                      >
-                        <div className="w-8 h-8 rounded-xl bg-white p-1 flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-200">
-                          <img 
-                            src={item.logo} 
-                            alt={item.name} 
-                            className="w-full h-full object-contain rounded" 
-                          />
-                        </div>
-                        <div>
-                          <div className="font-bold text-white text-xs sm:text-sm group-hover:text-cyan-400 transition-colors">
-                            {item.name}
+
+                    <div className="grid grid-cols-2 gap-2">
+                      {marketplaces.map((item) => (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          className="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-white/10 transition-colors group"
+                        >
+                          <div className="w-9 h-9 rounded-xl bg-white p-1 flex items-center justify-center flex-shrink-0 shadow-sm border border-slate-200">
+                            <img 
+                              src={item.logo} 
+                              alt={item.name} 
+                              className="w-full h-full object-contain rounded" 
+                            />
                           </div>
-                          <div className="text-[11px] text-slate-400 mt-0.5 leading-relaxed">{item.desc}</div>
-                        </div>
+                          <div className="min-w-0">
+                            <div className="font-bold text-white text-xs sm:text-sm group-hover:text-cyan-400 transition-colors truncate">
+                              {item.name}
+                            </div>
+                            <div className="text-[11px] text-slate-400 mt-0.5 leading-tight truncate">
+                              {item.desc}
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* Bottom Status Strip */}
+                    <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between px-2 text-xs">
+                      <span className="text-slate-400 text-[11px]">Need multi-channel catalog syncing?</span>
+                      <Link to="/contact-us" className="text-cyan-400 hover:text-cyan-300 font-bold text-[11px] flex items-center gap-1">
+                        <span>Get Free Proposal →</span>
                       </Link>
-                    ))}
+                    </div>
                   </div>
                 </div>
               )}
