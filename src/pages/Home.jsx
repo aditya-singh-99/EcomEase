@@ -186,6 +186,13 @@ export default function Home() {
       stat: '+160% YoY',
       description: 'Category dominance in infant, maternity, and kids products with targeted parent demographics.',
       link: '/firstcry-management-services'
+    },
+    {
+      name: 'eBay Global Export',
+      badge: '190+ Countries',
+      stat: '+280% YoY',
+      description: 'Cross-border export management, 250 free listings optimization, eIS logistics, and USD-to-INR wire payouts.',
+      link: '/ebay-management-services'
     }
   ];
 
@@ -568,6 +575,7 @@ export default function Home() {
                 { label: 'Brand Store Services', path: '/brand-store-ebc-services' },
                 { label: 'Reinstatement Services', path: '/account-reinstatement-services' },
                 { label: 'Amazon Global Expansion', path: '/amazon-global-expansion' },
+                { label: 'eBay Global Management', path: '/ebay-management-services' },
                 { label: 'Reconciliation Services', path: '/reconcilation-services' },
                 { label: 'IXD Enrollment', path: '/ixd-enrollment' },
                 { label: 'Shiprocket Integration', path: '/shiprocket-integration' },
@@ -599,7 +607,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="max-w-2xl mb-12">
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-              One Unified Engine. Six Dominant Marketplaces.
+              One Unified Engine. Seven Dominant Marketplaces.
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-400">
               Each channel operates with distinct algorithms, buyer behaviors, and logistics models. We optimize catalog visibility and unit velocity across each channel.
@@ -642,8 +650,8 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Specialized Growth Channels (Meesho, Myntra, JioMart, FirstCry) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Specialized Growth Channels (Meesho, Myntra, JioMart, FirstCry, eBay) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             {platforms.slice(2).map((p) => (
               <Link
                 key={p.name}
@@ -941,7 +949,7 @@ export default function Home() {
                     Channels to Audit:
                   </label>
                   <div className="flex flex-wrap gap-2">
-                    {['Amazon', 'Flipkart', 'Meesho', 'Myntra', 'JioMart', 'FirstCry'].map((mp) => {
+                    {['Amazon', 'Flipkart', 'Meesho', 'Myntra', 'JioMart', 'FirstCry', 'eBay'].map((mp) => {
                       const active = formData.marketplaces.includes(mp);
                       return (
                         <button

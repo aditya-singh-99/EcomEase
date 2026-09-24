@@ -51,6 +51,7 @@ export default function Footer() {
               <li><Link to="/jiomart-management-services" className="hover:text-white transition-colors">JioMart Retail</Link></li>
               <li><Link to="/firstcry-management-services" className="hover:text-white transition-colors">FirstCry Kids</Link></li>
               <li><Link to="/myntra-management-services" className="hover:text-white transition-colors">Myntra Fashion</Link></li>
+              <li><Link to="/ebay-management-services" className="hover:text-white transition-colors">eBay Global Export</Link></li>
             </ul>
           </div>
 

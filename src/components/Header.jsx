@@ -71,6 +71,12 @@ export default function Header() {
       desc: 'Apparel & lifestyle onboarding',
       logo: '/header-img/Myntra-logo.png'
     },
+    { 
+      name: 'eBay Global Export', 
+      path: '/ebay-management-services', 
+      desc: 'Cross-border sales to 190+ countries',
+      logo: '/partner-logos/ebay-partner-network.jpg'
+    },
   ];
 
   const supportiveServices = [
@@ -528,7 +534,7 @@ export default function Header() {
                     <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                       <div className="flex items-center gap-2 text-slate-300">
                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span>Across Amazon, Flipkart, Meesho, JioMart, FirstCry & Myntra</span>
+                        <span>Across Amazon, Flipkart, Meesho, JioMart, FirstCry, Myntra & eBay</span>
                       </div>
                       <a
                         href="#audit-form"

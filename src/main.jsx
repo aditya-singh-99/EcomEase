@@ -10,6 +10,7 @@ import Meesho from './pages/Meesho.jsx'
 import JioMart from './pages/JioMart.jsx'
 import FirstCry from './pages/FirstCry.jsx'
 import Myntra from './pages/Myntra.jsx'
+import Ebay from './pages/Ebay.jsx'
 import AdvertisementServices from './pages/AdvertisementServices.jsx'
 import ContactUs from './pages/ContactUs.jsx'
 import FBAEnrollment from './pages/FBAEnrollment.jsx'
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
       <Route path='jiomart-management-services' element={<JioMart />} />
       <Route path='firstcry-management-services' element={<FirstCry />} />
       <Route path='myntra-management-services' element={<Myntra />} />
+      <Route path='ebay-management-services' element={<Ebay />} />
 
       <Route path='advertisement-services' element={<AdvertisementServices />} />
       <Route path='amazon-fba-enrollment' element={<FBAEnrollment/>} />
