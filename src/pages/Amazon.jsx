@@ -5,7 +5,6 @@ import PriceCards from "../components/PriceCards";
 import { 
   Percent, 
   Search, 
-  AlertTriangle,
   Calculator,
   Sparkles,
   CheckCircle2,
@@ -148,35 +147,6 @@ export default function Amazon() {
           <p className="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
             Transparent breakdown of Amazon India&apos;s official referral commissions across all 234 categories, closing fees across Easy Ship, Self-Ship, Seller Flex, and Fulfillment Center (FBA) channels.
           </p>
-        </div>
-
-        {/* Critical 30-Day Policy Alert from Document */}
-        <div className="p-6 rounded-2xl bg-rose-950/40 border border-rose-500/30 mb-8 flex flex-col sm:flex-row items-start gap-4 shadow-xl">
-          <div className="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-            <AlertTriangle className="w-5 h-5" />
-          </div>
-          <div className="space-y-2 text-xs sm:text-sm text-slate-200">
-            <h4 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-              <span>Strict 30-Day Calendar Claim Deadline for All Fee Overcharges</span>
-              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">
-                Official Amazon Policy
-              </span>
-            </h4>
-            <p className="leading-relaxed">
-              For all claims related to <strong>incorrect referral fees, closing fees and refund commission fees</strong>, you must notify Amazon in writing within <strong>30 calendar days</strong> of the order being shipped. If no such claim is filed within the prescribed timeline, then the fees charged will be deemed correct and accepted by you. No claim filed after the expiry of this timeline will be entertained and Amazon will not be liable for any claims or damages.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 text-xs font-mono">
-              <div className="p-2.5 rounded-lg bg-black/40 border border-white/5">
-                <strong className="text-rose-300">Referral & Closing Fees:</strong> Submit claims within 30 calendar days from the date the order was placed.
-              </div>
-              <div className="p-2.5 rounded-lg bg-black/40 border border-white/5">
-                <strong className="text-rose-300">Refund Commission Fees:</strong> Submit claims within 30 calendar days from the date the buyer returns the order and order status changes to &ldquo;Return&rdquo;.
-              </div>
-            </div>
-            <p className="text-cyan-300 pt-1 font-sans text-xs">
-              ✓ Our EcomEase fee audit team reconciles your Seller Central reports daily to detect fee leaks and submit safe-T and fee claims before the 30-day window expires.
-            </p>
-          </div>
         </div>
 
         {/* How to Find Fee Category Step-by-Step Guide */}

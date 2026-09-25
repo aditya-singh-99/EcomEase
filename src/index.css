@@ -131,4 +131,25 @@
       transform: scale(1.02);
     }
   }
+
+  /* Brand Carousel Smooth Slow Drift Animations */
+  @keyframes marqueeSlow {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+  }
+
+  @keyframes marqueeReverseSlow {
+    0% { transform: translate3d(-50%, 0, 0); }
+    100% { transform: translate3d(0, 0, 0); }
+  }
+
+  .animate-marquee-slow {
+    animation: marqueeSlow 65s linear infinite;
+    will-change: transform;
+  }
+
+  .animate-marquee-reverse-slow {
+    animation: marqueeReverseSlow 65s linear infinite;
+    will-change: transform;
+  }
 }

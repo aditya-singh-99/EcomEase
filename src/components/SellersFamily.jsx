@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 /**
  * SellersFamily Component
- * Broad showcase section displaying all 29 authentic seller brands from the 'seller fam' folder.
+ * Continuous carousel showcase displaying 150+ authentic seller brands.
  */
 export default function SellersFamily() {
-  const [activeCategory, setActiveCategory] = useState('All Brands');
-
-  // Complete list of all 29 authentic seller brands with their respective logos and categories
+  // Complete list of authentic seller brands with their respective logos
   const sellerBrands = [
     {
       name: 'Sujata Appliances',
@@ -245,18 +243,13 @@ export default function SellersFamily() {
     },
   ];
 
-  const categories = [
-    'All Brands',
-    'Beauty & Perfumes',
-    'Health & Wellness',
-    'Home, Kitchen & Tools',
-    'Fashion & Lifestyle',
-    'Kids, Toys & Gadgets'
-  ];
+  // Split brands into two balanced groups for smooth dual-row continuous marquee
+  const row1Brands = sellerBrands.slice(0, 15);
+  const row2Brands = sellerBrands.slice(15);
 
-  const filteredBrands = activeCategory === 'All Brands'
-    ? sellerBrands
-    : sellerBrands.filter(b => b.categoryGroup === activeCategory);
+  // Triple each row for seamless infinite looping
+  const marqueeRow1 = [...row1Brands, ...row1Brands, ...row1Brands];
+  const marqueeRow2 = [...row2Brands, ...row2Brands, ...row2Brands];
 
   return (
     <section id="sellers-family" className="relative py-20 bg-gradient-to-b from-[#090D16] via-[#0B101D] to-[#090D16] border-b border-white/10 overflow-hidden">
@@ -267,7 +260,7 @@ export default function SellersFamily() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
             <span>Proven Marketplace Momentum</span>
@@ -278,14 +271,14 @@ export default function SellersFamily() {
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-            Proudly managing and scaling over <strong className="text-white">150+ visionary brands, manufacturers & sellers</strong> across Amazon, Flipkart, Myntra, FirstCry, Nykaa & Quick Commerce.
+            Proudly managing, scaling, and accelerating growth for over <strong className="text-white">150+ visionary brands, manufacturers & sellers</strong> across Amazon, Flipkart, Myntra, FirstCry, Nykaa & Quick Commerce.
           </p>
 
           {/* Quick Metrics Bar */}
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
             <div className="text-center p-2">
-              <div className="text-2xl sm:text-3xl font-extrabold text-white">29+</div>
-              <div className="text-[11px] text-slate-400 mt-0.5 font-medium">Showcased Family Brands</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-white">150+</div>
+              <div className="text-[11px] text-slate-400 mt-0.5 font-medium">Visionary Brands Scaled</div>
             </div>
             <div className="text-center p-2 border-l border-white/10">
               <div className="text-2xl sm:text-3xl font-extrabold text-cyan-400">₹180Cr+</div>
@@ -302,73 +295,86 @@ export default function SellersFamily() {
           </div>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${activeCategory === cat
-                ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25 scale-105 font-bold'
-                : 'bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10'
-                }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+      </div>
 
-        {/* Broad Grid of Seller Brands (Featuring all authentic logos) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4">
-          {filteredBrands.map((brand, idx) => (
+      {/* Infinite Carousel Showcase (1.6x Bigger boxes, Lower Speed, Dual-Direction) */}
+      <div className="relative w-full py-6 space-y-6">
+        {/* Edge Blur Gradients */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-48 bg-gradient-to-r from-[#090D16] to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-48 bg-gradient-to-l from-[#090D16] to-transparent z-20 pointer-events-none" />
+
+        {/* Row 1 - Smooth Marquee Left */}
+        <div className="flex w-max animate-marquee-slow hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing">
+          {marqueeRow1.map((brand, idx) => (
             <div
-              key={idx}
-              className="group relative p-4 rounded-2xl bg-slate-900/90 border border-white/10 hover:border-cyan-400/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-950/40 flex flex-col justify-between"
+              key={`row1-${idx}`}
+              className="flex-shrink-0 mx-3 sm:mx-4 p-3.5 sm:p-4 rounded-3xl bg-slate-900/90 border border-white/10 hover:border-cyan-400/60 hover:bg-slate-800/90 transition-all duration-300 flex items-center gap-4 sm:gap-5 shadow-xl group"
             >
-              <div>
-                {/* Brand Logo Presentation Box */}
-                <div className="w-full h-20 rounded-xl bg-white p-2.5 flex items-center justify-center shadow-md border border-slate-200 group-hover:scale-[1.02] transition-transform overflow-hidden mb-3">
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="max-h-full max-w-full object-contain"
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Brand Name & Highlight */}
-                <div className="flex items-start justify-between gap-1 mb-1">
-                  <h3 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-1 leading-snug">
-                    {brand.name}
-                  </h3>
-                </div>
-
-                <p className="text-[11px] text-slate-400 line-clamp-1 font-medium">
-                  {brand.category}
-                </p>
+              {/* 1.6x Bigger Brand Logo Showcase Box */}
+              <div className="w-28 h-20 sm:w-36 sm:h-24 rounded-2xl bg-white p-2.5 sm:p-3 flex items-center justify-center flex-shrink-0 shadow-md border border-slate-200 group-hover:scale-105 transition-transform overflow-hidden">
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                />
               </div>
-
-              {/* Channels Tagged */}
-              <div className="mt-3 pt-2.5 border-t border-white/10 flex flex-wrap items-center justify-between gap-1">
-                <div className="flex flex-wrap gap-1">
-                  {brand.platforms.map((p, pIdx) => (
+              <div className="pr-3">
+                <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-cyan-300 transition-colors whitespace-nowrap">
+                  {brand.name}
+                </h4>
+                <div className="flex items-center gap-1.5 mt-1.5">
+                  {brand.platforms.slice(0, 2).map((p, pIdx) => (
                     <span
                       key={pIdx}
-                      className="text-[9px] font-medium px-1.5 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10"
+                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-md bg-white/5 text-slate-300 border border-white/10"
                     >
                       {p}
                     </span>
                   ))}
                 </div>
-                <span className="text-[9px] font-bold text-cyan-400">
-                  {brand.highlight}
-                </span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA Banner */}
+        {/* Row 2 - Smooth Marquee Reverse */}
+        <div className="flex w-max animate-marquee-reverse-slow hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing">
+          {marqueeRow2.map((brand, idx) => (
+            <div
+              key={`row2-${idx}`}
+              className="flex-shrink-0 mx-3 sm:mx-4 p-3.5 sm:p-4 rounded-3xl bg-slate-900/90 border border-white/10 hover:border-cyan-400/60 hover:bg-slate-800/90 transition-all duration-300 flex items-center gap-4 sm:gap-5 shadow-xl group"
+            >
+              {/* 1.6x Bigger Brand Logo Showcase Box */}
+              <div className="w-28 h-20 sm:w-36 sm:h-24 rounded-2xl bg-white p-2.5 sm:p-3 flex items-center justify-center flex-shrink-0 shadow-md border border-slate-200 group-hover:scale-105 transition-transform overflow-hidden">
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div className="pr-3">
+                <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-cyan-300 transition-colors whitespace-nowrap">
+                  {brand.name}
+                </h4>
+                <div className="flex items-center gap-1.5 mt-1.5">
+                  {brand.platforms.slice(0, 2).map((p, pIdx) => (
+                    <span
+                      key={pIdx}
+                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-md bg-white/5 text-slate-300 border border-white/10"
+                    >
+                      {p}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 mt-8">
         <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-blue-950/50 via-slate-900/80 to-cyan-950/50 border border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="flex items-center gap-3.5">
             <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center flex-shrink-0">
