@@ -152,4 +152,56 @@
     animation: marqueeReverseSlow 65s linear infinite;
     will-change: transform;
   }
+
+  /* GPU Hardware-Accelerated Preloader Smooth Animations (Mobile, Tablet, Desktop) */
+  @keyframes preloaderScaleEntrance {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale3d(0.85, 0.85, 1);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+  }
+
+  @keyframes preloaderScaleExit {
+    0% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale3d(1.25, 1.25, 1);
+    }
+  }
+
+  .animate-preloader-enter {
+    animation: preloaderScaleEntrance 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .animate-preloader-exit {
+    animation: preloaderScaleExit 0.55s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  @keyframes fadeScaleIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-scale {
+    animation: fadeScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }

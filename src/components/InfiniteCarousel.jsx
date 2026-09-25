@@ -70,8 +70,8 @@ export default function InfiniteCarousel() {
     },
   ];
 
-  // Duplicate for seamless infinite loop
-  const marqueeItems = [...partnerBadges, ...partnerBadges, ...partnerBadges];
+  // Exactly 2 duplicates for mathematically seamless 50% translateX infinite looping
+  const marqueeItems = [...partnerBadges, ...partnerBadges];
 
   return (
     <div className="relative w-full py-8 sm:py-10 overflow-hidden bg-slate-950/80 border-y border-white/10">
@@ -91,8 +91,8 @@ export default function InfiniteCarousel() {
         </span>
       </div>
 
-      {/* The Infinite Marquee Track */}
-      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing">
+      {/* The Infinite Marquee Track (Seamless Loop) */}
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused] cursor-grab active:cursor-grabbing will-change-transform">
         {marqueeItems.map((item, index) => (
           <div
             key={index}

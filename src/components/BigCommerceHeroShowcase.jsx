@@ -18,7 +18,7 @@ import { useTilt3D } from '../hooks/useTilt3D';
 
 export default function BigCommerceHeroShowcase() {
   const [selectedChannel, setSelectedChannel] = useState('Amazon');
-  const { ref, style, glare, handleMouseMove, handleMouseLeave } = useTilt3D(5, 1.012);
+  const { ref, style, glare, handleMouseMove, handleMouseLeave, isTouch } = useTilt3D(5, 1.012);
 
   const channels = [
     {
@@ -26,7 +26,12 @@ export default function BigCommerceHeroShowcase() {
       name: 'Amazon India & Global',
       logo: '/Amazon_Logo.png',
       badge: 'FBA & Sponsored Ads',
-      highlights: ['A+ EBC & Brand Store', 'Safe-T Reimbursement Claims', 'ACOS Optimized PPC', 'Global US/UK/UAE Selling'],
+      highlights: [
+        'A+ EBC & Brand Store',
+        'Listings ranking SEO',
+        'ACOS Optimized PPC',
+        'Complete Global launched'
+      ],
       action: 'Listings, Pricing, Inventory & Promotions'
     },
     {
@@ -34,12 +39,17 @@ export default function BigCommerceHeroShowcase() {
       name: 'Flipkart & Shopsy',
       logo: '/Flipkart_Logo.png',
       badge: 'FBF & Smart Fulfillment',
-      highlights: ['F-Assured Badge Activation', 'Big Billion Days Campaign Prep', 'PLA Sponsored Ads', 'SPF Payment Reconciliation'],
+      highlights: [
+        'F-Assured Badge Activation',
+        'Sales days boost preparation',
+        'PLA,PCA and Flipkart Google ads setup',
+        'Listing quality SEO'
+      ],
       action: 'Dock Scheduling & Order Processing'
     },
     {
       id: 'Meesho',
-      name: 'Meesho Bharat Scale',
+      name: 'Meesho India Marketplace',
       logo: '/Meesho_Logo.png',
       badge: 'Zero Commission Dominance',
       highlights: ['Tier-2/3 Catalog Discovery', 'RTO Mitigation Protocols', 'Next-Day Dispatch Setup', '360° Account Health Monitoring'],
@@ -83,13 +93,15 @@ export default function BigCommerceHeroShowcase() {
         onMouseLeave={handleMouseLeave}
         className="relative rounded-2xl md:rounded-3xl p-3 sm:p-5 bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_30px_100px_rgba(0,0,0,0.4)] overflow-hidden transition-all text-left"
       >
-        {/* Specular glare overlay */}
-        <div 
-          className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-30"
-          style={{
-            background: `radial-gradient(circle 400px at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, ${glare.opacity}), transparent 70%)`
-          }}
-        />
+        {/* Specular glare overlay (Desktop only) */}
+        {!isTouch && (
+          <div 
+            className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-30"
+            style={{
+              background: `radial-gradient(circle 400px at ${glare.x}% ${glare.y}%, rgba(255, 255, 255, ${glare.opacity}), transparent 70%)`
+            }}
+          />
+        )}
         
         {/* Command Center Terminal Window */}
         <div className="relative rounded-xl md:rounded-2xl overflow-hidden bg-slate-950 shadow-2xl border border-white/10 p-4 sm:p-8">
@@ -130,9 +142,10 @@ export default function BigCommerceHeroShowcase() {
               <div className="flex items-center gap-4">
                 <div className="h-14 w-28 p-2 rounded-xl bg-white flex items-center justify-center shadow-lg flex-shrink-0">
                   <img 
+                    key={currentChannel.id}
                     src={currentChannel.logo} 
                     alt={currentChannel.name} 
-                    className="max-h-10 max-w-full object-contain"
+                    className="max-h-10 max-w-full object-contain animate-fade-scale"
                   />
                 </div>
                 <div>

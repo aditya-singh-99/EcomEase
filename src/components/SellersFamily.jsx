@@ -247,9 +247,9 @@ export default function SellersFamily() {
   const row1Brands = sellerBrands.slice(0, 15);
   const row2Brands = sellerBrands.slice(15);
 
-  // Triple each row for seamless infinite looping
-  const marqueeRow1 = [...row1Brands, ...row1Brands, ...row1Brands];
-  const marqueeRow2 = [...row2Brands, ...row2Brands, ...row2Brands];
+  // Exactly 2 duplicates for mathematically seamless 50% translateX infinite looping
+  const marqueeRow1 = [...row1Brands, ...row1Brands];
+  const marqueeRow2 = [...row2Brands, ...row2Brands];
 
   return (
     <section id="sellers-family" className="relative py-20 bg-gradient-to-b from-[#090D16] via-[#0B101D] to-[#090D16] border-b border-white/10 overflow-hidden">

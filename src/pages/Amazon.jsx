@@ -12,17 +12,27 @@ import {
   ChevronLeft,
   ChevronRight,
   ExternalLink,
-  Layers
+  Layers,
+  Globe,
+  DollarSign,
+  ArrowRight
 } from 'lucide-react';
 import { amazonCategories } from '../data/amazonFeeData';
+import { amazonUsRates } from '../data/amazonGlobalFeeData';
 
 export default function Amazon() {
+  const [amazonScope, setAmazonScope] = useState('india'); // 'india' | 'global'
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedGroup, setSelectedGroup] = useState('All Departments');
   const [calcCategoryName, setCalcCategoryName] = useState('Home & Kitchen Decor');
   const [calcPrice, setCalcPrice] = useState(850);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 15;
+
+  // Amazon Global States
+  const [globalSearch, setGlobalSearch] = useState('');
+  const [calcUsPrice, setCalcUsPrice] = useState(45);
+  const [calcUsCategory, setCalcUsCategory] = useState('Home and Kitchen');
 
   // Table 1. Closing Fee for Easy Ship, Self-Ship and Seller Flex
   const closingFeesTable1 = [
@@ -115,6 +125,30 @@ export default function Amazon() {
   }, [activeCalcCategory, calcPrice]);
 
   const netRetained = (Number(calcPrice) || 0) - calcResult.fee;
+
+  // Amazon Global Calculations & Search Filters
+  const filteredGlobalRates = useMemo(() => {
+    const q = globalSearch.toLowerCase().trim();
+    if (!q) return amazonUsRates;
+    return amazonUsRates.filter(r => 
+      r.category.toLowerCase().includes(q) || 
+      r.rate.toLowerCase().includes(q)
+    );
+  }, [globalSearch]);
+
+  const activeUsCategory = useMemo(() => {
+    return amazonUsRates.find(c => c.category === calcUsCategory) || amazonUsRates[0];
+  }, [calcUsCategory]);
+
+  const calcUsResult = useMemo(() => {
+    const p = Number(calcUsPrice) || 0;
+    if (!activeUsCategory || !activeUsCategory.calc) {
+      return { rateText: '15.00%', fee: +(p * 0.15).toFixed(2) };
+    }
+    return activeUsCategory.calc(p);
+  }, [activeUsCategory, calcUsPrice]);
+
+  const netUsRetained = ((Number(calcUsPrice) || 0) - calcUsResult.fee).toFixed(2);
 
   return (
     <div className="bg-[#070A12] text-white min-h-screen">
@@ -569,69 +603,357 @@ export default function Amazon() {
 
       </section>
 
-      {/* Existing PriceCards */}
-      <PriceCards
-        plan1={{
-          planName: "Standard",
-          monthlyPrice: "3999",
-          quaterlyPrice: "10999",
-          services: [
-            "Buyer Seller Message Response",
-            "Listings Addition (up to 50)",
-            "Safe-T Claim Filing (up to 45)",
-            "Monetary/Non-monetary Promotions",
-            "Advertisement Optimization",
-            "Category Approval",
-            "Filing Selling Application",
-            "FBA Registration & Management",
-            "Growth Suggestions",
-          ],
-        }}
-        plan2={{
-          planName: "Advance",
-          monthlyPrice: "5599",
-          quaterlyPrice: "15999",
-          services: [
-            "Buyer Seller Message Response",
-            "Listings Addition (up to 100)",
-            "Safe-T Claim Filing (up to 85)",
-            "Prime Enrollment",
-            "A+ Content Addition (up to 6)",
-            "Infographics Images (up to 6)",
-            "Monetary/Non-monetary Promotions",
-            "Advertisement Optimization",
-            "Category Approval",
-            "Filing Selling Application",
-            "FBA Registration & Management",
-            "Growth Suggestions",
-          ],
-        }}
-        plan3={{
-          planName: "Premium",
-          monthlyPrice: "9499",
-          quaterlyPrice: "24449",
-          services: [
-            "Buyer Seller Message Response",
-            "Listings Addition (up to 150)",
-            "Safe-T Claim Filing (up to 100)",
-            "Prime Enrollment",
-            "A+ Content Addition (up to 10)",
-            "Infographics Images (up to 15)",
-            "Promotions and Deals",
-            "Brand Store Creation",
-            "Brand Registry/Protection",
-            "Audit Reports (every 10th Day)",
-            "Reconciliation Report Monthly",
-            "Strengthening Case Follow Ups",
-            "Monetary/Non-monetary Promotions",
-            "Advertisement Optimization",
-            "Category Approval",
-            "Filing Selling Application",
-            "FBA Registration & Management",
-            "Growth Suggestions",
-          ],
-        }}
-      />
+      {/* =========================================================================
+          MARKETPLACE SCOPE TOGGLE: AMAZON INDIA VS AMAZON GLOBAL SELLING
+          (Just above the monthly billing cards)
+          ========================================================================= */}
+      <section className="pt-14 pb-6 max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-2xl mx-auto mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-2">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Select Management Scope</span>
+          </div>
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+            Choose Your Operational Plans & Rate Cards
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1.5">
+            Toggle between domestic Amazon India management and cross-border Amazon Global Selling export tables & pricing.
+          </p>
+        </div>
+
+        {/* High-Impact Segmented Scope Toggle */}
+        <div className="inline-flex p-1.5 rounded-2xl bg-slate-900 border border-white/10 shadow-2xl backdrop-blur-xl">
+          <button
+            type="button"
+            onClick={() => setAmazonScope('india')}
+            className={`btn-pressable px-6 sm:px-8 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2.5 ${
+              amazonScope === 'india'
+                ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30'
+                : 'text-slate-400 hover:text-white hover:bg-white/5'
+            }`}
+          >
+            <span className="text-base sm:text-lg">🇮🇳</span>
+            <span>Amazon India Marketplace</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setAmazonScope('global')}
+            className={`btn-pressable px-6 sm:px-8 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2.5 ${
+              amazonScope === 'global'
+                ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/25'
+                : 'text-slate-400 hover:text-white hover:bg-white/5'
+            }`}
+          >
+            <span className="text-base sm:text-lg">🌐</span>
+            <span>Amazon Global Selling (US / UK / UAE)</span>
+          </button>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          AMAZON GLOBAL TABLES & CALCULATOR (Displayed when Global is toggled)
+          ========================================================================= */}
+      {amazonScope === 'global' && (
+        <section className="pb-12 max-w-6xl mx-auto px-4 sm:px-6 space-y-10 animate-fade-scale">
+          
+          {/* Global Target Regions Banner */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10">
+              <div className="flex items-center gap-2 text-white font-bold text-sm">
+                <span className="text-lg">🇺🇸</span> Amazon North America
+              </div>
+              <div className="text-[11px] text-cyan-400 font-mono mt-1">$350B+ Market</div>
+              <p className="text-xs text-slate-400 mt-1">Direct access to high-spending US & Canada Prime consumers with FBA export.</p>
+            </div>
+            <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10">
+              <div className="flex items-center gap-2 text-white font-bold text-sm">
+                <span className="text-lg">🇬🇧</span> Amazon Europe & UK
+              </div>
+              <div className="text-[11px] text-emerald-400 font-mono mt-1">500M+ Consumers</div>
+              <p className="text-xs text-slate-400 mt-1">VAT compliance, PAN-EU FBA warehousing, and localized marketplace listings.</p>
+            </div>
+            <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10">
+              <div className="flex items-center gap-2 text-white font-bold text-sm">
+                <span className="text-lg">🇦🇪</span> Amazon Middle East
+              </div>
+              <div className="text-[11px] text-amber-400 font-mono mt-1">+65% YoY Growth</div>
+              <p className="text-xs text-slate-400 mt-1">Gulf eCommerce hub in UAE & Saudi Arabia with zero customs duties for select categories.</p>
+            </div>
+          </div>
+
+          {/* Interactive Live US Fee Calculator */}
+          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-blue-950/40 via-slate-900/90 to-cyan-950/30 border border-cyan-500/20 shadow-xl">
+            <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <Calculator className="w-4 h-4" />
+              <span>Interactive Amazon US Fee Calculator (USD $)</span>
+            </div>
+            <h4 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              Estimate Your US Marketplace Payout & Referral Fees
+            </h4>
+
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div className="md:col-span-4">
+                <label className="block text-xs font-medium text-slate-400 mb-1.5">
+                  Select Product Category (37 US Categories)
+                </label>
+                <select
+                  value={calcUsCategory}
+                  onChange={(e) => setCalcUsCategory(e.target.value)}
+                  className="w-full p-2.5 rounded-xl bg-slate-950 border border-white/15 text-xs text-white focus:outline-none focus:border-cyan-400"
+                >
+                  {amazonUsRates.map((c, idx) => (
+                    <option key={idx} value={c.category}>{c.category}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="md:col-span-3">
+                <label className="block text-xs font-medium text-slate-400 mb-1.5">
+                  Target Selling Price ($ USD)
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-bold">$</span>
+                  <input
+                    type="number"
+                    min="1"
+                    value={calcUsPrice}
+                    onChange={(e) => setCalcUsPrice(e.target.value)}
+                    className="w-full pl-7 pr-3 py-2.5 rounded-xl bg-slate-950 border border-white/15 text-sm font-bold text-white focus:outline-none focus:border-cyan-400 font-mono"
+                  />
+                </div>
+              </div>
+
+              <div className="md:col-span-5 grid grid-cols-2 gap-3 p-3.5 rounded-2xl bg-black/40 border border-white/10">
+                <div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400">Referral Deduction</div>
+                  <div className="text-lg font-bold text-rose-400 font-mono mt-0.5">
+                    -${calcUsResult.fee}
+                  </div>
+                  <div className="text-[10px] text-slate-500 font-mono">{calcUsResult.rateText}</div>
+                </div>
+                <div className="border-l border-white/10 pl-3">
+                  <div className="text-[10px] uppercase font-bold text-slate-400">Net Estimated Retained</div>
+                  <div className="text-lg font-bold text-emerald-400 font-mono mt-0.5">
+                    ${netUsRetained}
+                  </div>
+                  <div className="text-[10px] text-emerald-500/80 font-mono">Before FBA fulfillment</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Amazon US Referral Fee Rates Table (37 Categories) */}
+          <div className="rounded-3xl bg-slate-900/80 border border-white/10 p-6 sm:p-8 shadow-2xl">
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+              <div>
+                <h4 className="text-xl font-bold text-white flex items-center gap-2">
+                  <span>Amazon US Official Referral Fee Schedule</span>
+                  <span className="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                    37 Categories
+                  </span>
+                </h4>
+                <p className="text-xs text-slate-400 mt-1">
+                  Amazon deducts the greater of the applicable referral fee percentage or the per-item minimum referral fee.
+                </p>
+              </div>
+
+              {/* Search Category */}
+              <div className="relative w-full sm:w-72">
+                <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Search US category or rate..."
+                  value={globalSearch}
+                  onChange={(e) => setGlobalSearch(e.target.value)}
+                  className="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-950 border border-white/10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 font-medium"
+                />
+              </div>
+            </div>
+
+            <div className="overflow-x-auto max-h-[460px] overflow-y-auto">
+              <table className="w-full text-left text-xs sm:text-sm">
+                <thead className="sticky top-0 bg-slate-950 z-10">
+                  <tr className="border-b border-white/10 text-slate-400">
+                    <th className="py-3 px-4 font-semibold w-1/2">Fee Categories</th>
+                    <th className="py-3 px-4 font-semibold text-cyan-400">Referral Fee Percentage</th>
+                    <th className="py-3 px-4 font-semibold text-right text-slate-300">Minimum Per-Item Fee</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/5 bg-black/40">
+                  {filteredGlobalRates.length > 0 ? (
+                    filteredGlobalRates.map((row, idx) => (
+                      <tr key={idx} className="hover:bg-white/[0.03] transition-colors">
+                        <td className="py-3 px-4 font-bold text-white">{row.category}</td>
+                        <td className="py-3 px-4 text-cyan-300 font-mono font-medium">{row.rate}</td>
+                        <td className="py-3 px-4 text-slate-400 font-mono text-right font-bold">{row.minFee}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={3} className="py-8 text-center text-slate-400 text-xs">
+                        No category found matching &ldquo;{globalSearch}&rdquo;.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Managed Global Deliverables */}
+          <div className="p-6 rounded-2xl bg-slate-900/60 border border-white/10 space-y-3">
+            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+              EcomEase Turnkey International Export Scope Included
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs text-slate-300">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                <span>Global Brand Registry & International Trademark Authorization</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                <span>Harmonized System (HS Code) customs tariff categorization</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                <span>US/UK Target Country FBA Inbound Shipment & Pallet Creation</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                <span>USD, GBP, EUR & AED Foreign Exchange wire remittance audits</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      )}
+
+      {/* =========================================================================
+          MONTHLY BILLING CARDS (Amazon India vs Amazon Global Selling)
+          ========================================================================= */}
+      {amazonScope === 'india' ? (
+        <PriceCards
+          plan1={{
+            planName: "Standard",
+            monthlyPrice: "3999",
+            quaterlyPrice: "10999",
+            services: [
+              "Buyer Seller Message Response",
+              "Listings Addition (up to 50)",
+              "Safe-T Claim Filing (up to 45)",
+              "Monetary/Non-monetary Promotions",
+              "Advertisement Optimization",
+              "Category Approval",
+              "Filing Selling Application",
+              "FBA Registration & Management",
+              "Growth Suggestions",
+            ],
+          }}
+          plan2={{
+            planName: "Advance",
+            monthlyPrice: "5599",
+            quaterlyPrice: "15999",
+            services: [
+              "Buyer Seller Message Response",
+              "Listings Addition (up to 100)",
+              "Safe-T Claim Filing (up to 85)",
+              "Prime Enrollment",
+              "A+ Content Addition (up to 6)",
+              "Infographics Images (up to 6)",
+              "Monetary/Non-monetary Promotions",
+              "Advertisement Optimization",
+              "Category Approval",
+              "Filing Selling Application",
+              "FBA Registration & Management",
+              "Growth Suggestions",
+            ],
+          }}
+          plan3={{
+            planName: "Premium",
+            monthlyPrice: "9499",
+            quaterlyPrice: "24449",
+            services: [
+              "Buyer Seller Message Response",
+              "Listings Addition (up to 150)",
+              "Safe-T Claim Filing (up to 100)",
+              "Prime Enrollment",
+              "A+ Content Addition (up to 10)",
+              "Infographics Images (up to 15)",
+              "Promotions and Deals",
+              "Brand Store Creation",
+              "Brand Registry/Protection",
+              "Audit Reports (every 10th Day)",
+              "Reconciliation Report Monthly",
+              "Strengthening Case Follow Ups",
+              "Monetary/Non-monetary Promotions",
+              "Advertisement Optimization",
+              "Category Approval",
+              "Filing Selling Application",
+              "FBA Registration & Management",
+              "Growth Suggestions",
+            ],
+          }}
+        />
+      ) : (
+        <PriceCards
+          plan1={{
+            planName: "Global Launch",
+            monthlyPrice: "6999",
+            quaterlyPrice: "18999",
+            services: [
+              "US / UK / UAE Seller Central Setup",
+              "Global Product Listings (up to 50)",
+              "HS Code & Customs Duty Categorization",
+              "FBA Export & Inbound Shipment Creation",
+              "USD to INR Direct Wire Remittance Audits",
+              "Category Approval & Selling Applications",
+              "Buyer-Seller Message Response (Global)",
+              "Safe-T & Return Claim Filing (Global)",
+              "International Growth Suggestions",
+            ],
+          }}
+          plan2={{
+            planName: "Global Growth",
+            monthlyPrice: "10999",
+            quaterlyPrice: "29999",
+            services: [
+              "US / UK / UAE Seller Central Management",
+              "Global Product Listings (up to 120)",
+              "International Prime Badge Enrollment",
+              "Global A+ Content Addition (up to 6)",
+              "Infographics & Localization (up to 6)",
+              "Sponsored Products & Video PPC Ads",
+              "Multi-Country VAT / Tax Documentation",
+              "FBA Pallet & Cross-Border Logistics",
+              "Safe-T & Export Dispute Claim Filings",
+              "USD/GBP Forex Remittance Reconciliations",
+              "Bi-Weekly Account Performance Audits",
+              "Category & Brand Authorization Support",
+            ],
+          }}
+          plan3={{
+            planName: "Global Enterprise",
+            monthlyPrice: "16999",
+            quaterlyPrice: "45999",
+            services: [
+              "Full International Multi-Region Operations",
+              "Global Product Listings (up to 250)",
+              "International Prime Badge Enrollment",
+              "Global A+ Content Addition (up to 12)",
+              "Infographics & Localization (up to 15)",
+              "International Brand Store Creation",
+              "Global Brand Registry & Trademark Protection",
+              "Algorithmic International Sponsored PPC",
+              "Sea / Air Freight 3PL Inbound Warehousing",
+              "Multi-Currency (USD/GBP/EUR/AED) Wire Audits",
+              "Global Deals, Coupons & Lightning Promos",
+              "Dedicated Senior Global Account Manager",
+              "Weekly Performance Audits & 24/7 Escalation",
+              "FBA Global Pallet & Customs Compliance",
+            ],
+          }}
+        />
+      )}
     </div>
   );
 }
